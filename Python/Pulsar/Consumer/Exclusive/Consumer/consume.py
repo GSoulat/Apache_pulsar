@@ -4,7 +4,7 @@ import emoji
 
 client = pulsar.Client('pulsar://localhost:6650')
 consumer = client.subscribe('my-topic', subscription_name='my-sub',
-    consumer_type=ConsumerType.Failover)
+    consumer_type=ConsumerType.Exclusive)
 
 while True:
     try:

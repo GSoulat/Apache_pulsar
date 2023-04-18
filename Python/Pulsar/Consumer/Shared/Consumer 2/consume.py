@@ -4,7 +4,7 @@ import emoji
 
 client = pulsar.Client('pulsar://localhost:6650')
 consumer = client.subscribe('my-topic', subscription_name='my-sub',
-    consumer_type=ConsumerType.Exclusive)
+                            consumer_type=ConsumerType.Shared)
 
 while True:
     try:
@@ -18,5 +18,5 @@ while True:
         # Signal that the message was not processed successfully
         consumer.negative_acknowledge(msg)
         break
-    
+
 client.close()
